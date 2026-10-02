@@ -28,6 +28,8 @@ agent = Agent(
     ),
 )
 
+input_history = []
+
 
 def main() -> None:
     print("終了するには 'exit' または 'quit' を入力してください (Ctrl+D でも終了)")
@@ -41,6 +43,7 @@ def main() -> None:
             continue
         if user_input.lower() in EXIT_COMMANDS:
             break
+        input_history.append(user_input)
         agent(user_input)
 
 
