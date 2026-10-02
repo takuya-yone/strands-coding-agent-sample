@@ -1,6 +1,6 @@
 from strands import Agent
 from strands.models import BedrockModel
-from strands.vended_tools import shell, file_editor
+from strands.vended_tools import file_editor, shell
 
 # Bedrock is the default, so no model object is needed.
 
@@ -12,13 +12,11 @@ bedrock_model = BedrockModel(
 )
 
 
-
 agent = Agent(tools=[file_editor, shell])
 
 
 def main():
     agent("こんにちは")
-
 
 
 if __name__ == "__main__":
