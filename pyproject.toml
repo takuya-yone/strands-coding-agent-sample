@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "strands-agents>=1.57.2",
+    "strands-agents[web-fetch]>=1.57.2",
 ]
 
 [dependency-groups]
