@@ -1,12 +1,23 @@
+import os
+
 from strands import Agent
 from strands.models import BedrockModel
 from strands.vended_tools import file_editor, shell
 
-MODEL_ID = "jp.amazon.nova-2-lite-v1:0"
+JP_NOVA_2_LITE = "jp.amazon.nova-2-lite-v1:0"
+MODEL_ID = os.getenv("MODEL_ID", JP_NOVA_2_LITE)
 EXIT_COMMANDS = {"exit", "quit"}
 
 bedrock_model = BedrockModel(model_id=MODEL_ID)
-agent = Agent(model=bedrock_model, tools=[file_editor, shell])
+agent = Agent(
+    model=bedrock_model,
+    tools=[file_editor, shell],
+    system_prompt=(
+        """
+        あなたはコーディングのプロフェッショナルです。
+        """
+    ),
+)
 
 
 def main() -> None:
